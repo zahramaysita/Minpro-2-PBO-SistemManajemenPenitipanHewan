@@ -68,13 +68,14 @@ Program juga menerapkan validasi input pada menu utama sehingga pengguna hanya d
 
 ### 2.2.1 Tampilkan Data Hewan
 
-<img width="262" height="126" alt="image" src="https://github.com/user-attachments/assets/a0e8ac43-c1ef-42aa-b7c2-ce8d67d37422" />
+<img width="280" height="131" alt="image" src="https://github.com/user-attachments/assets/cba7247b-7135-4c1b-8032-eac071653411" />
+
 
 <img width="542" height="160" alt="image" src="https://github.com/user-attachments/assets/db4e200b-5820-4fee-9b95-2274e1276612" />
 
 Gambar di atas menampilkan data hewan yang tersimpan di dalam sistem. Data yang ditampilkan merupakan dummy data yang telah ditambahkan sebelumnya ke dalam ArrayList sebagai data awal program. Penerapan dummy data ini dilakukan untuk memenuhi ketentuan program, yaitu agar fitur read dapat langsung menampilkan data tanpa pengguna harus melakukan input data terlebih dahulu. Informasi yang ditampilkan meliputi ID hewan, nama hewan, dan jenis hewan. Selain menampilkan dummy data, menu ini juga dapat menampilkan data baru yang berhasil ditambahkan oleh pengguna melalui menu tambah data hewan.
 
-<img width="317" height="516" alt="image" src="https://github.com/user-attachments/assets/6a3c3742-8968-4f71-85eb-4ca5e96c8e57" />
+<img width="336" height="615" alt="image" src="https://github.com/user-attachments/assets/b947b180-d0dc-4687-9a28-bc79a184eeb8" />
 
 Gambar di atas menampilkan data yang sudah ditambahkan dan tersimpan di dalam sistem. Pada menu tampilkan data hewan, informasi yang ditampilkan berupa ID hewan, nama hewan, jenis hewan dan ras hewan.
 
@@ -101,7 +102,8 @@ Program juga menerapkan validasi input pada proses penambahan data hewan. ID hew
 Selain itu, nama hewan tidak boleh kosong. Jika terdapat data yang tidak sesuai, sistem akan menampilkan pesan kesalahan dan data tidak akan disimpan ke dalam sistem.
 Pada saat memilih jenis hewan, pengguna hanya dapat memasukkan angka sesuai pilihan yang tersedia, yaitu 1 untuk Kucing, 2 untuk Anjing, 3 untuk Kelinci, dan 4 untuk Hamster. Apabila pengguna memasukkan angka di luar pilihan tersebut atau memasukkan huruf maupun karakter selain angka, sistem akan menampilkan pesan kesalahan dan meminta pengguna untuk memasukkan pilihan yang valid.
 
-<img width="282" height="247" alt="image" src="https://github.com/user-attachments/assets/8979dc0b-2968-4d3c-8d7e-67faf0c94057" />
+
+<img width="292" height="251" alt="image" src="https://github.com/user-attachments/assets/b39dfc01-010e-4a0e-aede-b3119dfb9bf1" />
 
 Gambar di atas menampilkan proses penambahan data hewan ke dalam sistem. Pengguna memasukkan ID hewan, nama hewan, dan memilih jenis hewan yang tersedia. Karena data yang dimasukkan valid, sistem berhasil menyimpan data hewan dan menampilkan pesan bahwa data berhasil ditambahkan.
 ### 2.2.3 Update Data Hewan
@@ -240,11 +242,29 @@ Pada program Sistem Penitipan Hewan, inheritance diterapkan pada class Kucing, A
 
 Polymorphism merupakan konsep OOP yang memungkinkan method dengan nama yang sama memiliki perilaku yang berbeda pada class yang berbeda. Pada program ini, polymorphism diterapkan menggunakan method overriding, yaitu subclass membuat kembali method yang sudah ada pada superclass sesuai dengan kebutuhannya.
 
-Pada program Sistem Penitipan Hewan Peliharaan, method overriding diterapkan pada method getInfo(). Method tersebut awalnya terdapat pada class Hewan, kemudian di-override pada class Kucing, Anjing, Kelinci, dan Hamster sehingga setiap jenis hewan dapat menampilkan informasi yang berbeda.
+Polymorphism diterapkan pada method tampilkanHewan(). Pada saat data hewan ditampilkan, program memanggil method getInfo() melalui objek h yang bertipe Hewan. Karena method getInfo() telah di-override pada class Kucing, Anjing, Kelinci, dan Hamster, maka output yang ditampilkan akan menyesuaikan dengan jenis hewan yang diproses. Dengan demikian, satu method yang sama dapat menghasilkan output yang berbeda sesuai dengan objek yang digunakan.
 
+<img width="665" height="287" alt="image" src="https://github.com/user-attachments/assets/aaa5f3e2-71d5-420c-8c9d-dee9935fed87" />
+
+
+Letak overriding: class Kucing, Anjing, Kelinci, dan Hamster
 
 <img width="505" height="145" alt="image" src="https://github.com/user-attachments/assets/2ffad36e-4752-4864-8893-84db2eb8d898" />
 
-Pada gambar di atas, method getInfo() pada class kucing kita dibuat kembali menggunakan annotation @Override. Meskipun nama method sama dengan yang terdapat pada class Hewan, hasil yang ditampilkan berbeda karena disesuaikan dengan jenis hewan. Dengan cara ini, setiap subclass dapat memiliki implementasi method yang berbeda sesuai kebutuhannya.
 
-Saya menerapkan polymorphism menggunakan method overriding pada method getInfo(). Method tersebut ada di class Hewan lalu di-override pada class Kucing, Anjing, Kelinci, dan Hamster sehingga setiap subclass dapat menampilkan informasi yang berbeda
+
+<img width="431" height="92" alt="image" src="https://github.com/user-attachments/assets/933e5761-b3d9-4db3-8143-fc51937c767c" />
+
+
+
+<img width="440" height="86" alt="image" src="https://github.com/user-attachments/assets/ed3bd48a-35f2-421f-bf47-c1b712065212" />
+
+
+
+<img width="432" height="82" alt="image" src="https://github.com/user-attachments/assets/400bcb66-31bc-4a4d-8d09-a3417c24bee0" />
+
+
+
+Pada gambar di bawah, method getInfo() berhasil dijalankan pada menu Tampilkan Data Hewan. Hal ini dapat dilihat dari output yang ditampilkan, di mana setiap jenis hewan menghasilkan informasi yang berbeda meskipun menggunakan method yang sama. Sebagai contoh, data kucing menampilkan informasi "Kucing - Milo", sedangkan data anjing menampilkan informasi "Anjing - Bruno". Dengan demikian, penerapan polymorphism melalui method overriding pada program ini telah berhasil dilakukan.
+
+<img width="282" height="622" alt="image" src="https://github.com/user-attachments/assets/62a18ef8-9f9f-48f8-8d5d-f43575c4b691" />
